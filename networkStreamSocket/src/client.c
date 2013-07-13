@@ -38,11 +38,11 @@ int main(int argc, char *argv[]) {
 	   server->h_length);
     serv_addr.sin_port = htons(SOCK_SERV_PORT);
 
-//    if (connect(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
-//	LOG("connecting stream socket");
-//	close(sockfd);
-//	ERROR("connecting stream socket");
-//    }
+    if (connect(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
+	LOG("connecting stream socket");
+	close(sockfd);
+	ERROR("connecting stream socket");
+    }
 
     int serv_len = sizeof(serv_addr);
     for (;;) {
